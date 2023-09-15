@@ -20,7 +20,8 @@
 
 }
 .header-home{
-    padding-top: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     height: 52px;
     display: flex;
 }
@@ -38,13 +39,19 @@
     color: #424551;
 }
 .items{
-margin-left: 100px;
+     margin-left: 100px;
+    display: flex;
+
+
+}
+.navbar-home{
+    margin-top:15px ;
 }
 .logo{
 
 }
 .login{
-    display: inline-block;
+    display: inline-flex;
     font-family: Lato, serif;
     font-size: 16px;
     font-style: normal;
@@ -74,6 +81,44 @@ button{
     height: 17.917px;
     flex-shrink: 0;
 }
-.con-log{
+.person{
     display: flex;
+    width: 20px;
+    height: 20px;
+    padding: 1.042px 1.667px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+    margin-top:3px ;
+}
+.con-log{
+    width: 386px;
+    height: 52px;
+    display: inline-flex;
+    align-items: center;
+}
+
+ .get-consultation{
+    width: 127px;
+    height: 52px;
+     border-radius: 4px ;
+     border: #EC3F1B;
+     background: #EC3F1B;
+     color: white;
+
+}
+.consultation{
+    display: flex;
+    padding: 0px 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.play img{
+    position: relative;
+    right: 1020px;
+    top: 100px;
+    width: 84px;
+    height: 84px;
 }
