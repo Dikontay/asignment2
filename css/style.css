@@ -74,3 +74,34 @@ button{
     height: 17.917px;
     flex-shrink: 0;
 }
+#beginning{
+    width: 367px;
+    height:92px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#ready-to-learn\?{
+    color: rgba(30,33,44,1);
+    width:153px;
+    height: 24px;
+    position: absolute;
+    left:0;
+    top: 0;
+    text-align: left;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-family: Lato;
+}
+#featured-courses{
+    color: rgba(30,33,44,1);
+    width: 367px;
+    height: 60px;
+    position: absolute;
+    left: 0;
+    top: 32px;
+    font-family: Lato;
+    text-align: left;
+    font-size: 46px;
+    letter-spacing: 0;
+}
