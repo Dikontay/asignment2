@@ -74,3 +74,6 @@ button{
     height: 17.917px;
     flex-shrink: 0;
 }
+.con-log{
+    display: flex;
+}
