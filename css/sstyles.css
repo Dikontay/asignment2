@@ -166,3 +166,27 @@ input{
     font-size:46px;
     letter-spacing:0;
 }
+#accept{
+    color:rgba(65, 68, 80, 1);
+    width:50px;
+    height:60px;
+    font-family:Lato;
+    text-align:left;
+    font-size:25px;
+    letter-spacing:0;
+    left:40px;
+    top:1px;
+}
+#quests{
+    width:650px;
+    height:55px;
+    position:absolute;
+    left:540px;
+    top:562px;
+    display: inline-block;
+    border: 1px solid black;
+}
+#check{
+    left:520px;
+    top:-2px;
+}
