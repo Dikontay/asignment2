@@ -144,3 +144,14 @@ display: flex;
     height: 551px;
     flex-shrink: 0;
 }
+.main-block{
+
+}
+.get-consultation{
+    padding: 0 40px;
+    height: 52px;
+    border-radius: 4px;
+    color: #fff;
+    background: #F75E05;
+    border: #F75E05;
+}
