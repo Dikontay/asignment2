@@ -2,17 +2,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: #FFA896;
+    background:     #FFBFB2;
 }
-
-.main-home{
-    background: #FFA896 ;
+body{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.main-home{
+
+    /*background: #FFA896 ;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
 .container-home{
-    width: 1400px;
+    width: 1230px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,9 +25,13 @@
 
 }
 .header-home{
+    width: 1230px;
     padding-top: 30px;
     height: 52px;
     display: flex;
+    margin-bottom: 120px;
+    align-items: center;
+    justify-content: space-between;
 }
 .links-home{
     display: inline-flex;
@@ -37,20 +46,31 @@
     line-height: 160%;
     color: #424551;
 }
-.items{
-margin-left: 100px;
-}
+/*.items{*/
+/*margin-left: 100px;*/
+/*}*/
 .logo{
 
 }
+.con-log{
+    display: inline-flex;
+    align-items: center;
+    margin-top: -2px;
+}
 .login{
-    display: inline-block;
+    display: inline-flex;
     font-family: Lato, serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: 160%;
     color: #424551;
+    align-items: center;
+}
+.person{
+    width: 20px;
+    height: 20px;
+    margin-left: 30px;
 }
 button{
     font-family: Lato, serif;
@@ -72,5 +92,55 @@ button{
 .login img{
     width: 16.666px;
     height: 17.917px;
+    flex-shrink: 0;
+}
+.play{
+    display: flex;
+
+}
+.block1{
+display: flex;
+    justify-content: space-between;
+}
+.play img{
+
+    /*right: 760px;*/
+    /*top:100px;*/
+    width: 84px;
+    height:84px;
+}
+.play p{
+    font-family: Lato, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    color: #424551;
+    /*position: relative;*/
+    right: 760px;
+    top:100px;
+    margin-top: 31px;
+
+}
+
+.main-text{
+    position: absolute;
+    width: 496px;
+}
+
+.main-text p{
+    color: #1E212C;
+    font-family: Lato;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 130%; /* 83.2px */
+    letter-spacing: 1px;
+
+}
+
+.main-image img{
+    width: 602px;
+    height: 551px;
     flex-shrink: 0;
 }
