@@ -281,15 +281,15 @@ body {
 }
 article{
     color: rgba(30, 33, 44, 1);
-    width: 500px;
+    width: 700px;
     height: 60px;
     position: absolute;
     font-family: Lato;
     text-align: left;
     font-size: 25px;
     letter-spacing: 0;
- left: 800px;
-    top: 54px;
+ left: 700px;
+    top: 70px;
 }
 
 
@@ -297,4 +297,7 @@ article{
     width: 220px;
     height:214px;
     margin-left: 10px;
+}
+hr{
+    margin-top: 50px;
 }
