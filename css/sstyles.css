@@ -1,17 +1,20 @@
 
 #send-message {
-    background-image:linear-gradient(0deg, rgba(255, 63.000000044703484, 58.00000034272671, 1) 0%,rgba(246.62544697523117, 93.75581949949265, 5.252306163311005, 1) 100%) ;
+    background-color: rgba(255, 63, 58, 1);
     width:340px;
     height:52px;
     position:absolute;
-    left:905px;
-    top:562px;
+    left:540px;
+    top:650px;
     border-top-left-radius:4px;
     border-top-right-radius:4px;
     border-bottom-left-radius:4px;
     border-bottom-right-radius:4px;
+    color: white;
 }
-
+#thx{
+    color: white;
+}
 
 #feedback {
     width:151px;
@@ -187,6 +190,77 @@ input{
     border: 1px solid black;
 }
 #check{
-    left:520px;
+    left:670px;
     top:-2px;
+}
+#in-touch{
+    width:280px;
+    height:180px;
+    position:absolute;
+    left:20px;
+    top:132px;
+    border:1px solid  rgba(255, 63, 58, 1);
+}
+#talk-to-us{
+    color:rgba(120, 122, 128, 1);
+    width:75px;
+    height:21px;
+    position:absolute;
+    left:0px;
+    top:0px;
+    font-family:Lato;
+    text-align:left;
+    font-size:14px;
+    letter-spacing:0;
+}
+#call-us{
+    color:rgba(120.00000044703484, 122.00000032782555, 128.0000075697899, 1);
+    width:75px;
+    height:21px;
+    position:absolute;
+    left:0px;
+    top:60px;
+    font-family:Lato;
+    text-align:left;
+    font-size:14px;
+    letter-spacing:0;
+}
+#phone{
+    color:rgba(30, 33, 44, 1);
+    width:126px;
+    height:27px;
+    position:absolute;
+    left:0px;
+    top:75px;
+    font-family:Lato;
+    text-align:left;
+    font-size:18px;
+}
+#address{
+    color:rgba(120, 122, 128, 1);
+    width:56px;
+    height:21px;
+    position:absolute;
+    left:0px;
+    top:120px;
+    font-family:Lato;
+    text-align:left;
+    font-size:14px;
+    letter-spacing:0;
+}
+#locat{
+    color:rgba(30, 33, 44, 1);
+    width:359px;
+    height:27px;
+    position:absolute;
+    left:0px;
+    top:140px;
+    font-family:Lato;
+    text-align:left;
+    font-size:18px;
+    letter-spacing:0;
+}
+a{
+    text-decoration: none;
+    color:rgba(30, 33, 44, 1);
 }
