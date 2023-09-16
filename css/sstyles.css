@@ -1,8 +1,4 @@
-.main{
-    display: flex;
-    align-items: center;
-    justify-content:center;
-}
+
 #send-message {
     background-color: rgba(255, 63, 58, 1);
     width:340px;
