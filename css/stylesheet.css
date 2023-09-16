@@ -1,16 +1,9 @@
 
 body {
-    background: #E5E5E5;
+    background: white;
 
 }
 
-.the-whole-page {
-    background-color:rgba(255, 255, 255, 1);
-    width:1399px;
-    height:935px;
-    position:absolute;
-    overflow:hidden;
-}
 
 .courses {
     width:1230px;
