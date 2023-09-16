@@ -49,8 +49,19 @@ body{
 /*.items{*/
 /*margin-left: 100px;*/
 /*}*/
-.logo{
+article {
 
+    color: rgba(30, 33, 44, 1);
+    width: auto;
+    height: 60px;
+    position: absolute;
+    font-family: Lato;
+    text-align: left;
+    font-size: 25px;
+    letter-spacing: 0;
+    /*left: 700px;*/
+    top: 100px;
+    margin-top: 30px;
 }
 .con-log{
     display: inline-flex;
@@ -120,18 +131,20 @@ display: flex;
     right: 760px;
     top:100px;
     margin-top: 31px;
+    /*width: 700px;*/
+    height: 60px;
 
 }
 
 .main-text{
-    position: absolute;
+    position: relative;
     width: 496px;
 }
 
 .main-text p{
     color: #1E212C;
     font-family: Lato;
-    font-size: 64px;
+    font-size: 30px;
     font-style: normal;
     font-weight: 900;
     line-height: 130%; /* 83.2px */
@@ -145,8 +158,44 @@ display: flex;
     flex-shrink: 0;
 }
 .main-block{
-
+    position: relative;
 }
+
+.buttons-block1{
+    margin-top: 160px;
+}
+.about-us{
+    /*display: flex;*/
+    padding: 0px 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-radius: 4px;
+    border: solid #F75E05;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 52px;
+    color: #F75E05;
+}
+.explore-courses{
+    margin-left: 45px;
+    padding: 0px 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-radius: 4px;
+    border: solid #F75E05;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 52px;
+    color: #fff;
+    background: #F75E05;
+}
+
 .get-consultation{
     padding: 0 40px;
     height: 52px;
@@ -154,4 +203,38 @@ display: flex;
     color: #fff;
     background: #F75E05;
     border: #F75E05;
+}
+
+.numbers{
+    margin-top: 20px;
+
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+.numbers li{
+
+    display: flex;
+    align-items: center;
+}
+
+.numbers li .text{
+    color: #1E212C;
+    margin-left: 20px;
+    font-family: Lato, serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+}
+
+.numbers li .number{
+    color: #1E212C;
+    text-align: center;
+    /*margin-left: 20px;*/
+    font-family: Lato, serif;
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 130%;
 }
