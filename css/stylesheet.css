@@ -5,8 +5,9 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .the-whole-page{
-    display: block;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -14,9 +15,10 @@ body {
 .courses {
     width:1230px;
     height:854px;
-    position:absolute;
+    position:relative;
     left:125px;
-    top:50px;
+    top:0px;
+    margin-bottom: 200px;
 }
 #course-card-1 {
     box-shadow:0px 80px 80px rgba(154, 156, 165, 0);
@@ -27,7 +29,7 @@ body {
     left:630px;
     top:640px;
     border-radius:4px;
-    border:3px solid rgba(229, 232, 237, 1);
+    border:1px solid rgba(229, 232, 237, 1);
 }
 
 .card-content {
@@ -265,7 +267,8 @@ article{
 .img{
     width: 220px;
     height:214px;
-    margin-left: 10px;
+
+    border: 1px solid rgba(229, 232, 237, 1);
 }
 hr{
     margin-top: 50px;
