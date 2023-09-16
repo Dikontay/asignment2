@@ -5,17 +5,16 @@ body{
 }
 .main-contacts{
     display: flex;
-    align-items: center;
     justify-content: center;
     position: relative;
     top:30px;
-
+    margin: 0 auto;
 }
-#container-contacts{
+
+.container-contacts{
     width: 1400px;
     display: block;
-    align-items: center;
-    /*justify-content: space-between;*/
+    margin: 0 auto;
 }
 
 #send-message {
@@ -24,12 +23,13 @@ body{
     height:52px;
     position:absolute;
     left:540px;
-    top:650px;
+    top:630px;
     border-top-left-radius:4px;
     border-top-right-radius:4px;
     border-bottom-left-radius:4px;
     border-bottom-right-radius:4px;
     color: white;
+    margin-bottom: 1020px;
 }
 #thx{
     color: white;
@@ -70,13 +70,17 @@ body{
     width:255px;
     height:92px;
     position:relative;
-
     left:0px;
     top:27px;
 }
 .contact-info{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Distribute items with equal space between them */
+   /* Vertically center items */
+ /* Take up the full width of the parent container */
+   /* Add some horizontal padding to create space from both sides */
+
+
 
 }
 #info {
@@ -217,7 +221,7 @@ input{
     border: 1px solid black;
 }
 #check{
-    left:600px;
+    left:660px;
     top:-2px;
 
 
@@ -307,13 +311,17 @@ a{
 }
 
 .forma{
-
     position: relative;
-    top:-491px;
+    top:-570px;
 }
 
 .form-frame{
     display:inline;
-
 }
 
+.information{
+    margin-left: 50px;
+}
+.extra-margin{
+height: 200px;
+}
