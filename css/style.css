@@ -9,6 +9,10 @@ body{
     justify-content: center;
     align-items: center;
 }
+.logo-p{
+    font-size: 72px;
+    font-weight: 700 ;
+}
 .main-home{
 
     /*background: #FFA896 ;*/
@@ -26,7 +30,7 @@ body{
 }
 .header-home{
     width: 1230px;
-    padding-top: 30px;
+    padding-top: 90px;
     height: 52px;
     display: flex;
     margin-bottom: 120px;
@@ -237,4 +241,9 @@ display: flex;
     font-style: normal;
     font-weight: 900;
     line-height: 130%;
+}
+
+footer{
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
