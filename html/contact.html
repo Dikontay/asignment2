@@ -1,85 +1,97 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/sstyles.css">
-    <title>Contact Us</title>
-    <link rel="icon" type = "image/x-icon" href="/css/img/favicon.ico">
+    <title>Contact</title>
 </head>
 <body>
-<div class="main-contacts">
-    <div class="container-contacts">
-        <!---->
-        <div class="contact-info">
-            <div class="information">
-            <div id="contact-info">
-                <span id="info">Contact info</span>
-                <span id="get-in-touch">Get in touch</span>
-            </div>
-
-            <div id="in-touch">
-                <span id="talk-to-us">Talk To Us:</span><br>
-                <a href="mailto:hello@devduo.com">hello@devduo.com</a><br>
-                <hr>
-                <span id="call-us">Call Us:</span><br>
-                <span id="phone">(405) 555-0128</span><br>
-                <hr>
-                <span id="address">Address:</span><br>
-                <span id="locat">C1 Mangilik El, Astana, Kazakhstan</span><br>
-            </div></div>
-            <div class="contact-info">
-                <img src="/css/img/img.png" alt="">
-            </div>
-        </div>
-
-
-        <div class="form-frame">
-            <div class="person">
-                <img src="/css/img/img_1.png" alt="">
-            </div>
-            <div class="forma">
-                <div id="header">
-                    <span id="any-quest">Any questions?</span>
-                    <span id="drop">Drop us a line</span>
-
-                </div>
-                <form>
-                    <div id="first-n">
-                        <label for="fname">First Name:</label><br>
-                        <input type="text" id="fname"><br>
-                    </div>
-                    <div id="last-n">
-                        <label for="lname">Last Name:</label><br>
-                        <input type="text" id="lname"><br>
-                    </div>
-                    <div id="emmail">
-                        <label for="eemail">Email:</label><br>
-                        <input type="text" id="eemail"><br>
-                    </div>
-                    <div id="numbers">
-                        <label for="number">Phone:</label><br>
-                        <input type="text" id="number"><br>
-                    </div>
-                    <div id="prefs">
-                        <label for="message">Message</label><br>
-                        <textarea id="message" rows="3" cols="30" placeholder="I would like to learn your courses"></textarea><br>
-                    </div>
-                </form>
-                <div id="quests">
-                    <input type="checkbox" id="check">
-                    <label for="check" id="accept">I agree to receive communications from DevDuo Online School</label>
-                </div>
-                <button id="send-message">
-                    <a href="ThankYou.html" id="thx">Send Message</a>
-                </button>
-                <div class="extra-margin"> <p></p></div>
-            </div>
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg mb-3" style="background-color: #FFA07A">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="font-size: 30px">DevDuo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse mx-5" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#" style="font-size: 20px">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="courses.html" style="font-size: 20px">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="contact.html" style="font-size: 20px">Contact</a>
+                </li>
+            </ul>
         </div>
     </div>
-</div>
+</nav>
+<!--Get info-->
+<div class="row mx-3">
+    <div class="col-lg-6 col-md-6 col-sm-12 text-center">
+        <h4 class="display-5">Get in touch</h4>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span id="talk-to-us">Talk To Us:</span>
+                <a href="mailto:hello@devduo.com">hello@devduo.com</a>
+            </li>
 
+            <li class="list-group-item">
+                <span id="call-us">Call Us:</span>
+                <span id="phone">(405) 555-0128</span>
+            </li>
+
+            <li class="list-group-item">
+                <span id="address">Address:</span>
+                <span id="locat">C1 Mangilik El, Astana, Kazakhstan</span>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <img class="img-fluid" src="img/map.png" alt="map">
+    </div>
+</div>
+<!--Drop us a line-->
+<div class="row mx-3">
+    <div class="col-lg-6 col-md-6 col-sm-12 mb-5">
+        <img  src="img/girl.png" class="img-fluid" alt="girl">
+    </div>
+    <div class="col col-lg-6 col-md-6 col-sm-12 text-center">
+        <h4 class="display-5 mb-5">Drop us a line</h4>
+        <div class="row g-3 mb-3">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+            </div>
+        </div>
+        <div class="row g-3 mb-3">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <input type="text" class="form-control" placeholder="Phone" aria-label="Phone">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Reason why you want to study programming"></textarea>
+        </div>
+        <div class="row mb-5" style="border: 2px solid #FFA07A">
+            <div class="form-check pt-3 pb-3">
+                <input class="form-check-input ms-5" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">I agree to receive communications from DevDuo Online School
+                </label>
+            </div>
+        </div>
+        <button type="button" class="btn" style="background-color: #FFA07A; font-size: 20px">Send</button>
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
