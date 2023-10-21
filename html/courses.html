@@ -35,11 +35,30 @@
     </div>
 </nav>
 <div class="container d-flex justify-content-center" id="search-results">
-    <!-- Display "Not Found" message by default -->
     <h1 class="display-1" id="not-found-message" style="display: none;">Not Found</h1>
 </div>
-<div class="container d-flex justify-content-center" id="found-cards-container" style="display: none;">
-    <!-- The found cards will be displayed here -->
+
+<!--Image Slider-->
+<div class="container d-flex justify-content-center" id="found-cards-container" style="display: none;"></div>
+<div>
+<h4 class="display-5 mt-5 mb-5 text-center">Our graduates</h4>
+
+<div style="border: #FFA07A 2px solid;display: flex; align-items: center; justify-content: center;margin-left: 100px;margin-right: 100px">
+
+<div id="slider" style="margin: 0 auto; overflow: hidden;">
+    <img src="/css/img/21825BD9-6B89-4226-BBD6-FCC9F8A48CDC.jpeg" alt="Image 1" class="d-block" style="height: 400px;width: 600px">
+    <img src="/css/img/mark-zuckerberg-headshot-11jpg-653437ef815fa.jpg" alt="Image 2" style="height: 400px;width: 600px" class="d-none">
+    <img src="/css/img/4531982327.png" alt="Image 2" style="height: 400px;width: 650px" class="d-none">
+    <img src="/css/img/pngimg.com%20-%20elon_musk_PNG11.png" alt="Image 2" style="height: 400px;width: 600px" class="d-none">
+</div>
+
+    <button class="btn  carousel-control-prev mt-5" id="prev-button" onclick="changeSlide(-1)">
+        <span class="carousel-control-prev-icon" style="background-color: black" aria-hidden="true"></span>
+    </button>
+    <button class="btn  carousel-control-next mt-5" id="next-button" onclick="changeSlide(1)">
+        <span class="carousel-control-next-icon"  style="background-color: black" aria-hidden="true"></span>
+    </button>
+</div>
 </div>
 
 <!--Course-Cards-->
