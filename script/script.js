@@ -1,30 +1,46 @@
+function searchCourse() {
+    // Get the search term from the input field
+    const searchTerm = document.getElementById("searchbar").value.toLowerCase();
 
-const searchInput = document.getElementById('searchbar');
-searchInput.addEventListener('input', search_course);
-function search_course() { 
-    let input = document.getElementById('searchbar').value.toLowerCase();
-    let courseElements = document.querySelectorAll('.container .card');
-    let searchResults = document.getElementById('search-results');
+    // Get all the course cards
+    const courses = document.querySelectorAll(".card");
 
-    while (searchResults.firstChild) {
-        searchResults.removeChild(searchResults.firstChild);
-    }
+    // Get the search results container
+    const foundCardsContainer = document.getElementById("found-cards-container");
 
- courseElements.forEach(courseElement => {
-        let title = courseElement.querySelector('.card-title').textContent.toLowerCase();
-            //console.log(title)
-        
-        // Check if the input exists in the title of this course element
-        if (title.includes(input)) {
-          
-            // This course matches the search criteria
-            const matchingCardCopy = courseElement
+    // Show the "Not Found" message by default
+    const notFoundMessage = document.getElementById("not-found-message");
+    notFoundMessage.style.display = "block";
 
-            searchResults.appendChild(matchingCardCopy);
-           
+    // Clear the centered container
+    foundCardsContainer.innerHTML = '';
+
+    // Loop through the cards and check if the course title includes the search term
+    let anyCardFound = false;
+
+    // Display all cards initially
+    courses.forEach((course) => {
+        course.style.display = "block";
+    });
+
+    courses.forEach((course) => {
+        const courseTitle = course.querySelector(".card-title").textContent.toLowerCase();
+
+        if (courseTitle.includes(searchTerm)) {
+            // If it matches, move the card to the centered container
+            foundCardsContainer.appendChild(course);
+
+            // Hide the "Not Found" message
+            notFoundMessage.style.display = "none";
+
+            anyCardFound = true;
         } else {
-            // This course does not match the search criteria, hide it
-            courseElement.style.display = 'none';
+            course.style.display = "none";
         }
     });
+
+    // Display the centered container if any card is found
+    if (anyCardFound) {
+        foundCardsContainer.style.display = "block";
+    }
 }

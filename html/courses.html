@@ -28,21 +28,21 @@
             </ul>
         </div>
 
-         <form class="form-inline d-flex">
-    <input class="form-control mr-sm-2" type="search" id = "searchbar" placeholder="search course" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="search_course()">Search</button>
-    <div id="search-results" class="container d-flex justify-content-center">
-        <!-- Results will be displayed here -->
-    </div>
-
-  </form>
+        <div class="container d-flex justify-content-center">
+            <input class="form-control" type="text" id="searchbar" placeholder="Search course">
+            <button class="btn btn-primary" onclick="searchCourse()">Search</button>
+        </div>
     </div>
 </nav>
+<div class="container d-flex justify-content-center" id="search-results">
+    <!-- Display "Not Found" message by default -->
+    <h1 class="display-1" id="not-found-message" style="display: none;">Not Found</h1>
+</div>
+<div class="container d-flex justify-content-center" id="found-cards-container" style="display: none;">
+    <!-- The found cards will be displayed here -->
+</div>
 <!--Course-Cards-->
-<div class="container d-flex justify-content-center">
-    
-    <div class="col">
-        <div class="container" id="courses-list">
+<div class="container center-rows me-5 mt-5" >
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12">
                  <div class="card mb-3" style="max-width: 540px;">
@@ -247,10 +247,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-       
-    </div>
-
 </div>
 <script src="/script/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
