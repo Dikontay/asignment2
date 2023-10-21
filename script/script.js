@@ -45,7 +45,6 @@ function searchCourse() {
     }
 }
 
-
 function validateForm() {
     const firstName = document.forms["myForm"]["firstName"].value;
     const lastName = document.forms["myForm"]["lastName"].value;
@@ -54,16 +53,14 @@ function validateForm() {
     const reason = document.forms["myForm"]["reason"].value;
     const agreement = document.forms["myForm"]["agreement"].checked;
 
-    const errorMessage = document.getElementById("error-message");
-
     if (firstName === "" || lastName === "" || email === "" || phone === "" || reason === "" || !agreement) {
-        errorMessage.textContent = "Please fill out all required fields and agree to the terms.";
-        return;
+        alert("Please fill out all required fields and agree to the terms.");
+        return false; // Prevent form submission
     }
 
     // Additional validation checks can be added for specific fields (e.g., email format, phone number format).
 
     // If all validation passes, you can submit the form
-    errorMessage.textContent = ""; // Clear any previous error messages
-    // Your form submission code can go here.
+    alert("Form submitted successfully!");
+    return true; // Allow form submission
 }
