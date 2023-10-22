@@ -65,9 +65,27 @@ function validateForm() {
     return true; // Allow form submission
 }
 
-setInterval(myTimer, 1000);
+function countdown(hours, id) {
+    var targetTime = new Date().getTime() + hours * 60 * 60 * 1000; // 24 hours in milliseconds
 
-function myTimer() {
-    const d = new Date();
-    document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+    var countdownTimer = setInterval(function() {
+        var now = new Date().getTime();
+        var timeLeft = targetTime - now;
+
+        if (timeLeft <= 0) {
+            clearInterval(countdownTimer);
+            document.getElementById(id).innerHTML = "Expired";
+        } else {
+            var hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById(id).innerHTML = hours + "h : " + minutes + "m : " + seconds + "s left";
+        }
+    }, 1000);
 }
+
+
+// Call the countdown function to start the countdown when the page loads.
+countdown(72, "countdown");
+countdown(56, "countdown-nazerke")
