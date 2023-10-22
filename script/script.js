@@ -85,7 +85,14 @@ function countdown(hours, id) {
     }, 1000);
 }
 
-
+function showDate(hours, id){
+    const d = new Date()
+    d.setHours(d.getHours()+hours)
+    const formattedDate = d.toDateString() + ' ' + d.toLocaleTimeString();
+    document.getElementById(id).innerHTML+=formattedDate
+}
+showDate(56, "showDateNaz")
+showDate(72, "showDateIce")
 // Call the countdown function to start the countdown when the page loads.
 countdown(72, "countdown");
 countdown(56, "countdown-nazerke")
