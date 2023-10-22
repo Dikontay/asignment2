@@ -1,6 +1,6 @@
 function searchCourse() {
     // Get the search term from the input field
-    const searchTerm = document.getElementById("searchbar").value.toLowerCase();
+    const searchTerm = document.getElementById("searchbar").value.toLowerCase().trim();
 
     // Get all the course cards
     const courses = document.querySelectorAll(".card");
@@ -10,10 +10,14 @@ function searchCourse() {
 
     // Show the "Not Found" message by default
     const notFoundMessage = document.getElementById("not-found-message");
-    notFoundMessage.style.display = "block";
 
     // Clear the centered container
     foundCardsContainer.innerHTML = '';
+
+    if (searchTerm === "") {
+        // If the search bar is empty, do nothing and return
+        return;
+    }
 
     // Loop through the cards and check if the course title includes the search term
     let anyCardFound = false;
@@ -37,13 +41,14 @@ function searchCourse() {
         } else {
             course.style.display = "none";
         }
-    });
+    })
 
     // Display the centered container if any card is found
     if (anyCardFound) {
         foundCardsContainer.style.display = "block";
     }
 }
+
 
 function validateForm() {
     const firstName = document.forms["myForm"]["firstName"].value;
