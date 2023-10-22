@@ -1,3 +1,4 @@
+//search
 function searchCourse() {
 
     const searchTerm = document.getElementById("searchbar").value.toLowerCase();
@@ -43,7 +44,7 @@ function searchCourse() {
         foundCardsContainer.style.display = "block";
     }
 }
-
+//form validation
 function validateForm() {
     const firstName = document.forms["myForm"]["firstName"].value;
     const lastName = document.forms["myForm"]["lastName"].value;
@@ -62,7 +63,7 @@ function validateForm() {
     return true;
 }
 
-
+//image slider
 let  currentSlide = 0;
 const slides = document.querySelectorAll('#slider img');
 
