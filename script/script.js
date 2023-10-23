@@ -49,7 +49,6 @@ function searchCourse() {
     }
 }
 
-
 function validateForm() {
     const firstName = document.forms["myForm"]["firstName"].value;
     const lastName = document.forms["myForm"]["lastName"].value;
@@ -96,8 +95,30 @@ function showDate(hours, id){
     const formattedDate = d.toDateString() + ' ' + d.toLocaleTimeString();
     document.getElementById(id).innerHTML+=formattedDate
 }
+
+
+let  currentSlide = 0;
+const slides = document.querySelectorAll('#slider img');
+
+function changeSlide(direction) {
+    slides[currentSlide].classList.remove('d-block');
+    slides[currentSlide].classList.add('d-none');
+    currentSlide += direction;
+
+    if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    }
+
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+
+    slides[currentSlide].classList.remove('d-none');
+    slides[currentSlide].classList.add('d-block');
+}
+
 showDate(56, "showDateNaz")
 showDate(72, "showDateIce")
 // Call the countdown function to start the countdown when the page loads.
 countdown(72, "countdown");
-countdown(56, "countdown-nazerke")
+countdown(56, "countdown-nazerke");
