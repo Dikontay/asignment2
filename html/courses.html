@@ -7,7 +7,8 @@
 </head>
 <body>
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg mb-5" style="background-color: #FFA07A">
+
+<nav class="navbar navbar-expand-lg mb-5 fixed-top" style="background-color: #FFA07A">
     <div class="container">
         <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64c-35.3 0-64 28.7-64 64H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64c0 35.3 28.7 64 64 64v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448c35.3 0 64-28.7 64-64h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448V280h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448V176h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448c0-35.3-28.7-64-64-64V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H280V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H176V24zM160 128H352c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H160c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zm192 32H160V352H352V160z"/></svg>
         <a class="navbar-brand fs-1 fw-bold mx-2" href="#" >DEVDUO</a>
@@ -28,15 +29,29 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="events.html" style="font-size: 20px">Events</a>
                 </li>
+
+
             </ul>
         </div>
 
         <div class="container d-flex justify-content-center">
             <input class="form-control" type="text" id="searchbar" placeholder="Search course">
             <button class="btn btn-primary" onclick="searchCourse()">Search</button>
+
         </div>
+        <a class="m-0 p-0 position-relative" href="#" data-bs-toggle="modal" data-bs-target="#shoppingModal" >
+            <img class=" w-25 h-25" src="/css/img/shopping.svg" alt="shopping">
+            <span id="basket-badge" class="hidden position-absolute top-0 translate-middle badge rounded-pill bg-danger">
+                 <span id="basket-quantity">0</span>
+  </span>
+        </a>
+
+
     </div>
+
+
 </nav>
+
 <div class="container d-flex justify-content-center" id="search-results">
     <h1 class="display-1" id="not-found-message" style="display: none;">Not Found</h1>
 </div>
@@ -44,9 +59,11 @@
 <!--Image Slider-->
 <div class="container d-flex justify-content-center" id="found-cards-container" style="display: none;"></div>
 <div>
-<h4 class="display-5 mt-5 mb-5 text-center">Our graduates</h4>
+
+<h4 class="display-5 mt-5 text-center">Our graduates</h4>
 
 <div style="border: #FFA07A 2px solid;display: flex; align-items: center; justify-content: center;margin-left: 100px;margin-right: 100px">
+
 
 <div id="slider" style="margin: 0 auto; overflow: hidden;">
     <img src="/css/img/21825BD9-6B89-4226-BBD6-FCC9F8A48CDC.jpeg" alt="Image 1" class="d-block" style="height: 400px;width: 600px">
@@ -65,9 +82,9 @@
 </div>
 
 <!--Course-Cards-->
-<div class="container center-rows me-5 mt-5" >
+<div class="container center-rows me-5 mt-5"  >
             <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12" id="course1">
                  <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
@@ -78,12 +95,13 @@
                             <h3 class="card-title">Python Development</h3>
                             <p class="card-text ">The course made by Aubakirov Sultan</p>
                             <h3><span class="badge text-bg-success">490$</span></h3>
+                            <button class="btn btn-primary add-to-basket" >Add to Basket</button>
                         </div>
                     </div>
                 </div>
                 </div>
             </div>
-                <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12" id = "course2">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -94,6 +112,7 @@
                                     <h3 class="card-title">C++ Development</h3>
                                     <p class="card-text">The course made by Tabuldin Aisultan</p>
                                     <h3><span class="badge text-bg-success">490$</span></h3>
+                                    <button class="btn btn-primary add-to-basket" >Add to Basket</button>
                                 </div>
                             </div>
                         </div>
@@ -101,7 +120,7 @@
                 </div>
             </div>
             <div class="row ">
-                <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12"  id="course3">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -112,12 +131,13 @@
                                     <h3 class="card-title">Flutter Development</h3>
                                     <p class="card-text">The course made by Yakupov Yernazar</p>
                                     <h3><span class="badge text-bg-success">490$</span></h3>
+                                    <button class="btn btn-primary add-to-basket">Add to Basket</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12" id="course4">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -128,6 +148,7 @@
                                     <h3 class="card-title">Java Development</h3>
                                     <p class="card-text">The course made by Alimkhan Rulan</p>
                                     <h3><span class="badge text-bg-success">490$</span></h3>
+                                    <button class="btn btn-primary add-to-basket" >Add to Basket</button>
                                 </div>
                             </div>
                         </div>
@@ -135,7 +156,7 @@
                 </div>
             </div>
             <div class="row" >
-                <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12" id="course5">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -146,12 +167,13 @@
                                     <h3 class="card-title">Golang Development</h3>
                                     <p class="card-text">The course created by Alimbayeva Dilnaz</p>
                                     <h3><span class="badge text-bg-success">490$</span></h3>
+                                    <button class="btn btn-primary add-to-basket" >Add to Basket</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12" id="course6">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -162,6 +184,7 @@
                                     <h3 class="card-title">Swift Development</h3>
                                     <p class="card-text">The course created by Kassymova Sabina</p>
                                     <h3><span class="badge text-bg-success">490$</span></h3>
+                                    <button class="btn btn-primary add-to-basket" >Add to Basket</button>
                                 </div>
                             </div>
                         </div>
@@ -169,7 +192,7 @@
                 </div>
             </div>
             <div class="row" >
-                <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12" id="course7">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -180,12 +203,13 @@
                                     <h3 class="card-title">Java Script Development</h3>
                                     <p class="card-text">The course created by Sarsenova Zhibek</p>
                                     <h3><span class="badge text-bg-success">490$</span></h3>
+                                    <button class="btn btn-primary add-to-basket" >Add to Basket</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12"  id="course8">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -196,6 +220,7 @@
                                     <h3 class="card-title">C# Development</h3>
                                     <p class="card-text">The course created by Khaimuldin Askar</p>
                                     <h3><span class="badge text-bg-success">490$</span></h3>
+                                    <button class="btn btn-primary add-to-basket">Add to Basket</button>
                                 </div>
                             </div>
                         </div>
@@ -203,7 +228,7 @@
                 </div>
             </div>
             <div class="row" >
-                <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12" id="course9">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -214,12 +239,13 @@
                                     <h3 class="card-title">PostgreSQL basics </h3>
                                     <p class="card-text">The course created by Assanova Nurgul</p>
                                     <h3><span class="badge text-bg-success">490$</span></h3>
+                                    <button class="btn btn-primary add-to-basket" >Add to Basket</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12" id="course10">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -230,6 +256,7 @@
                                     <h3 class="card-title">Linux Essentials</h3>
                                     <p class="card-text">The course created by Aitolkyn Kulmuratova</p>
                                     <h3><span class="badge text-bg-success">490$</span></h3>
+                                    <button class="btn btn-primary add-to-basket" >Add to Basket</button>
                                 </div>
                             </div>
                         </div>
@@ -237,7 +264,7 @@
                 </div>
             </div>
             <div class="row" >
-                <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12" id="course11">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -248,12 +275,13 @@
                                     <h3 class="card-title">Kotlin Development</h3>
                                     <p class="card-text">The course created by Elena Tolmacheva</p>
                                     <h3><span class="badge text-bg-success">490$</span></h3>
+                                    <button class="btn btn-primary add-to-basket" >Add to Basket</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12" id="course12">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -261,16 +289,47 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h3 class="card-title">Swift Development Advanced</h3>
+                                    <h3 class="card-title">Swift Development II</h3>
                                     <p class="card-text">The course created by Kassymova Sabina</p>
                                     <h3><span class="badge text-bg-success">490$</span></h3>
+                                    <button class="btn btn-primary add-to-basket" >Add to Basket</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
 </div>
+<!-- Modal -->
+<div class="modal fade" id="shoppingModal" tabindex="-1" aria-labelledby="shoppingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="shoppingModalLabel">Shopping Cart</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Add your shopping cart content here -->
+                <div id="shopping-basket">
+                    <h2>Your Shopping Basket</h2>
+                <ul id="basket-items-modal" class="list-group list-group-flush">
+
+
+                    <!-- Items will be displayed here -->
+                </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <p class="list-group-item">Total</p>
+                <button type="button" class="btn btn-success" id="totalbutton"></button>
+                <button type="button" class="btn btn-primary">Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="/script/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

@@ -69,8 +69,9 @@ function validateForm() {
     return true; // Allow form submission
 }
 
-function countdown(hours, id) {
-    var targetTime = new Date().getTime() + hours * 60 * 60 * 1000; // 24 hours in milliseconds
+function countdown(targetDate, id) {
+    // Get the target date and time in milliseconds
+    const targetTime = new Date(targetDate).getTime();
 
     var countdownTimer = setInterval(function() {
         var now = new Date().getTime();
@@ -80,21 +81,21 @@ function countdown(hours, id) {
             clearInterval(countdownTimer);
             document.getElementById(id).innerHTML = "Expired";
         } else {
-            var hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            document.getElementById(id).innerHTML = hours + "h : " + minutes + "m : " + seconds + "s left";
+            document.getElementById(id).innerHTML = days + "d : " + hours + "h : " + minutes + "m : " + seconds + "s left";
         }
     }, 1000);
 }
 
-function showDate(hours, id){
-    const d = new Date()
-    d.setHours(d.getHours()+hours)
-    const formattedDate = d.toDateString() + ' ' + d.toLocaleTimeString();
-    document.getElementById(id).innerHTML+=formattedDate
-}
+// Call the countdown function with the specific target date and time
+countdown("2023-11-25T15:00:00", "countdown"); // Replace the target date and time with your event's date and time
+countdown("2023-11-22T10:30:00", "countdown-nazerke"); // Replace with the second event's date and time
+
+
 
 
 let  currentSlide = 0;
@@ -117,8 +118,108 @@ function changeSlide(direction) {
     slides[currentSlide].classList.add('d-block');
 }
 
-showDate(56, "showDateNaz")
-showDate(72, "showDateIce")
-// Call the countdown function to start the countdown when the page loads.
-countdown(72, "countdown");
-countdown(56, "countdown-nazerke");
+// showDate(56, "showDateNaz")
+// showDate(72, "showDateIce")
+// // Call the countdown function to start the countdown when the page loads.
+// countdown(72, "countdown");
+// countdown(56, "countdown-nazerke");
+
+
+// Define an array to store basket items
+const basketItems = [];
+let count = 0;
+let totalPrice=0
+// Function to add a course to the basket
+function addToBasket(courseCard) {
+
+    // Check if the course card is already in the shopping basket
+    if (basketItems.includes(courseCard)) {
+        // If it's already in the basket, do nothing or show a message to the user
+        // You can show a message or handle this as per your requirements
+        alert('This course is already in your basket.');
+    } else {
+        // If it's not in the basket, add it to the basket items array
+        basketItems.push(courseCard);
+
+        // Create a list item to display the added course in the shopping basket
+        const basketList = document.getElementById('basket-items-modal');
+        const basketItem = document.createElement('li.list-group-item');
+
+        const itemName = document.createElement('span');
+        itemName.textContent = courseCard.querySelector('.card-title').textContent + " ";
+        const itemPrice = document.querySelector('.badge.text-bg-success').textContent;
+        const itemPriceSpan = document.createElement('span');
+        itemPriceSpan.textContent = itemPrice;
+
+
+        const deleteButton = document.createElement('button');
+        deleteButton.className = 'btn btn-danger btn-sm';
+        deleteButton.textContent = 'Delete';
+        deleteButton.addEventListener('click', function () {
+            removeItemFromBasket(courseCard, basketItem);
+        });
+
+
+        basketItem.appendChild(itemName);
+        basketItem.appendChild(itemPriceSpan);
+        basketItem.appendChild(deleteButton);
+
+        totalPrice += 490; // Update the total price
+        document.getElementById('totalbutton').textContent = totalPrice + "$"; // Update the total price displayed
+
+        basketList.appendChild(basketItem);
+        count++;
+        updateBadgeVisibility(count);
+
+
+    }
+}
+
+function removeItemFromBasket(courseCard, basketItem) {
+    const index = basketItems.indexOf(courseCard);
+    if (index !== -1) {
+        basketItems.splice(index, 1);
+        basketItem.remove();
+        totalPrice -= 490; // Update the total price
+        document.getElementById('totalbutton').textContent = totalPrice + "$"; // Update the total price displayed
+        count--;
+        updateBadgeVisibility(count);
+    }
+}
+
+// Add event listeners to each "Add to Basket" button
+const courseIds = [
+    'course1', 'course2', 'course3', 'course4', 'course5',
+    'course6', 'course7', 'course8', 'course9', 'course10',
+    'course11', 'course12'
+];
+
+for (let i = 0; i < courseIds.length; i++) {
+    const courseId = courseIds[i];
+    const courseCard = document.getElementById(courseId);
+
+    if (courseCard) {
+        const addToBasketButton = courseCard.querySelector('.add-to-basket');
+
+        if (addToBasketButton) {
+            addToBasketButton.addEventListener('click', function() {
+                addToBasket(courseCard);
+            });
+        }
+    }
+}
+const basketBadge = document.getElementById('basket-badge');
+const basketQuantity = document.getElementById('basket-quantity');
+// Function to update the badge visibility
+function updateBadgeVisibility(itemCount) {
+    if (itemCount > 0) {
+        basketQuantity.textContent = itemCount;
+        basketBadge.style.display = 'block'; // Show the badge
+    } else {
+        basketBadge.style.display = 'none'
+        basketQuantity.display = 'none'; // Hide the badge
+    }
+}
+// element = document.getElementById('basket-items')
+// element.appendChild(basketItems)
+
