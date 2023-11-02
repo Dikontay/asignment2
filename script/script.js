@@ -118,13 +118,7 @@ function changeSlide(direction) {
     slides[currentSlide].classList.add('d-block');
 }
 
-// showDate(56, "showDateNaz")
-// showDate(72, "showDateIce")
-// // Call the countdown function to start the countdown when the page loads.
-// countdown(72, "countdown");
-// countdown(56, "countdown-nazerke");
-
-
+//SHOPPING BASKET!!!!!
 // Define an array to store basket items
 const basketItems = [];
 let count = 0;
@@ -220,6 +214,5 @@ function updateBadgeVisibility(itemCount) {
         basketQuantity.display = 'none'; // Hide the badge
     }
 }
-// element = document.getElementById('basket-items')
-// element.appendChild(basketItems)
+
 
