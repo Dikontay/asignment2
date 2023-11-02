@@ -216,3 +216,44 @@ function updateBadgeVisibility(itemCount) {
 }
 
 
+
+//Form
+const signUpModal = document.getElementById("signUpModal");
+const signInModal = document.getElementById("signInModal");
+const openSignUpModalButton = document.getElementById("openSignUpModal");
+const openSignInModalButton = document.getElementById("openSignInModal");
+const closeSignUpModalButton = document.getElementById("closeSignUpModal");
+const closeSignInModalButton = document.getElementById("closeSignInModal");
+const signUpSubmitButton = document.getElementById("signup_submit");
+const signInSubmitButton = document.getElementById("signin_submit");
+
+// Open the sign-up modal
+openSignUpModalButton.addEventListener("click", () => {
+    signUpModal.style.display = "block";
+});
+
+// Close the sign-up modal
+closeSignUpModalButton.addEventListener("click", () => {
+    signUpModal.style.display = "none";
+});
+
+// Open the sign-in modal
+openSignInModalButton.addEventListener("click", () => {
+    signInModal.style.display = "block";
+});
+
+// Close the sign-in modal
+closeSignInModalButton.addEventListener("click", () => {
+    signInModal.style.display = "none";
+});
+
+// Prevent default form submission
+signUpSubmitButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    // You can add your form submission logic here
+});
+
+signInSubmitButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    // You can add your form submission logic here
+});
