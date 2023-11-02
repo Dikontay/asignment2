@@ -10,8 +10,8 @@
 
 <nav class="navbar navbar-expand-lg mb-5 fixed-top" style="background-color: #FFA07A">
     <div class="container">
-        <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64c-35.3 0-64 28.7-64 64H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64c0 35.3 28.7 64 64 64v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448c35.3 0 64-28.7 64-64h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448V280h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448V176h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448c0-35.3-28.7-64-64-64V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H280V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H176V24zM160 128H352c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H160c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zm192 32H160V352H352V160z"/></svg>
-        <a class="navbar-brand fs-1 fw-bold mx-2" href="#" >DEVDUO</a>
+        <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512"><!-- Your SVG Icon Code --></svg>
+        <a class="navbar-brand fs-1 fw-bold mx-2" href="#">DEVDUO</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -29,35 +29,55 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="events.html" style="font-size: 20px">Events</a>
                 </li>
-
             </ul>
         </div>
 
         <div class="container d-flex justify-content-center">
             <input class="form-control" type="text" id="searchbar" placeholder="Search course">
             <button class="btn btn-primary" onclick="searchCourse()">Search</button>
-
         </div>
-        <a class="ml-3 position-relative" href="#" data-bs-toggle="modal" data-bs-target="#shoppingModal" >
+        <a class="ml-3 position-relative" href="#" data-bs-toggle="modal" data-bs-target="#shoppingModal">
             <img class="w-25" src="/css/img/shopping.svg" alt="shopping">
             <span id="basket-badge" class="position-absolute top-0 translate-middle badge rounded-pill bg-danger">
-                 <span id="basket-quantity">0</span>
-                    </span>
+                <span id="basket-quantity">0</span>
+            </span>
         </a>
-
-
-
     </div>
-
-
 </nav>
+
+<!-- Shopping Cart Modal (Your Existing Modal) -->
+<div class="modal fade" id="shoppingModal" aria-labelledby="shoppingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="shoppingModalLabel">Shopping Cart</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Add your shopping cart content here -->
+                <div id="shopping-basket">
+                    <h2>Your Shopping Basket</h2>
+                    <ul id="basket-items-modal" class="list-group list-group-flush">
+                        <!-- Items will be displayed here -->
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <p class="list-group-item">Total</p>
+                <button type="button" class="btn btn-success" id="totalbutton"></button>
+                <button type="button" class="btn btn-primary">Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="container d-flex justify-content-center" id="search-results">
     <h1 class="display-1" id="not-found-message" style="display: none;">Not Found</h1>
 </div>
 
 <!--Image Slider-->
-<div class="container d-flex justify-content-center" id="found-cards-container" style="display: none;"></div>
+<div class="container d-flex justify-content-center" id="found-cards-container" style="display: none;margin-top: 100px"></div>
 <div>
 <div class="mt-5">
     <h4 class="display-5 text-center pt-5 ">Our graduates</h4>
@@ -303,33 +323,6 @@
             </div>
 
 
-</div>
-<!-- Modal -->
-<div class="modal fade" id="shoppingModal" tabindex="-1" aria-labelledby="shoppingModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="shoppingModalLabel">Shopping Cart</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- Add your shopping cart content here -->
-                <div id="shopping-basket">
-                    <h2>Your Shopping Basket</h2>
-                <ul id="basket-items-modal" class="list-group list-group-flush">
-
-
-                    <!-- Items will be displayed here -->
-                </ul>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <p class="list-group-item">Total</p>
-                <button type="button" class="btn btn-success" id="totalbutton"></button>
-                <button type="button" class="btn btn-primary">Checkout</button>
-            </div>
-        </div>
-    </div>
 </div>
 
 <script src="/script/script.js"></script>
