@@ -70,30 +70,37 @@ function validateForm() {
 }
 
 function countdown(targetDate, id) {
-    // Get the target date and time in milliseconds
     const targetTime = new Date(targetDate).getTime();
-
     var countdownTimer = setInterval(function() {
         var now = new Date().getTime();
         var timeLeft = targetTime - now;
+        var element = document.getElementById(id);
+
+        // Ensure the element exists before trying to update it
+        if (!element) {
+            clearInterval(countdownTimer);
+            console.error('Element with id ' + id + ' does not exist.');
+            return;
+        }
 
         if (timeLeft <= 0) {
             clearInterval(countdownTimer);
-            document.getElementById(id).innerHTML = "Expired";
+            element.innerHTML = "Expired";
         } else {
             var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
             var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            document.getElementById(id).innerHTML = days + "d : " + hours + "h : " + minutes + "m : " + seconds + "s left";
+            element.innerHTML = days + "d : " + hours + "h : " + minutes + "m : " + seconds + "s left";
         }
     }, 1000);
 }
-
 // Call the countdown function with the specific target date and time
-countdown("2023-11-25T15:00:00", "countdown"); // Replace the target date and time with your event's date and time
-countdown("2023-11-22T10:30:00", "countdown-nazerke"); // Replace with the second event's date and time
+document.addEventListener('DOMContentLoaded', function() {
+    countdown("2023-11-25T15:00:00", "countdown"); // For the first event
+    countdown("2023-11-22T10:30:00", "countdown-nazerke"); // For the second event
+});
 
 
 
@@ -224,26 +231,37 @@ const openSignUpModalButton = document.getElementById("openSignUpModal");
 const openSignInModalButton = document.getElementById("openSignInModal");
 const closeSignUpModalButton = document.getElementById("closeSignUpModal");
 const closeSignInModalButton = document.getElementById("closeSignInModal");
+const signUpSubmitButton = document.getElementById("signup_submit");
+const signInSubmitButton = document.getElementById("signin_submit");
+
 
 // Open the sign-up modal
-openSignUpModalButton.addEventListener("click", () => {
-    signUpModal.style.display = "block";
-});
+if (openSignUpModalButton) {
+    openSignUpModalButton.addEventListener("click", () => {
+        signUpModal.style.display = "block";
+    });
+}
 
 // Close the sign-up modal
-closeSignUpModalButton.addEventListener("click", () => {
-    signUpModal.style.display = "none";
-});
+if (closeSignUpModalButton) {
+    closeSignUpModalButton.addEventListener("click", () => {
+        signUpModal.style.display = "none";
+    });
+}
 
 // Open the sign-in modal
-openSignInModalButton.addEventListener("click", () => {
-    signInModal.style.display = "block";
-});
+if (openSignInModalButton) {
+    openSignInModalButton.addEventListener("click", () => {
+        signInModal.style.display = "block";
+    });
+}
 
-
-closeSignInModalButton.addEventListener("click", () => {
-    signInModal.style.display = "none";
-});
+// Close the sign-in modal
+if (closeSignInModalButton) {
+    closeSignInModalButton.addEventListener("click", () => {
+        signInModal.style.display = "none";
+    });
+}
 
 
 
@@ -300,52 +318,45 @@ function validateRecieverPassword(){
     }
 }
 
-document.getElementById('up_password').addEventListener('input', validateRecieverPassword)
-document.getElementById('full_name').addEventListener('input', validateRecieverName)
-document.getElementById('up_email').addEventListener('input', validateRecieverEmail)
+// Adding event listeners for input validation
+const upPasswordElement = document.getElementById('up_password');
+const fullNameElement = document.getElementById('full_name');
+const upEmailElement = document.getElementById('up_email');
+
+if (upPasswordElement) {
+    upPasswordElement.addEventListener('input', validateRecieverPassword);
+}
+
+if (fullNameElement) {
+    fullNameElement.addEventListener('input', validateRecieverName);
+}
+
+if (upEmailElement) {
+    upEmailElement.addEventListener('input', validateRecieverEmail);
+}
 
 
-document.getElementById('sign-inbtn').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the form from submitting (if used in a form)
 
-    // Specify the URL of the new webpage you want to open
-    const newPageURL = "/html/admin-page.html"; // Change this URL to the one you want
 
-    // Open the new webpage in the current browser tab
-    window.location.href = newPageURL;
-})
+//add checkout 
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.addEventListener('click', function(event) {
+        if (event.target && event.target.id === 'checkoutButton') {
+            addCheckout();
+        }
+    });
+});
 
-// const users = [];
-//
-// // Function to add a new user to the array
-// function addUser(fullName, email, password) {
-//     users.push({ fullName, email, password });
-// }
-//
-// // Function to display users in the admin page
-// function displayUsers() {
-//     const userListContainer = document.getElementById('user-list');
-//     userListContainer.innerHTML = '';
-//
-//     users.forEach(user => {
-//         const userDiv = document.createElement('div');
-//         userDiv.innerHTML = `
-//                     <p>Name: ${user.fullName}</p>
-//                     <p>Email: ${user.email}</p>
-//                     <p>Password: ${user.password}</p>
-//                 `;
-//         userListContainer.appendChild(userDiv);
-//     });
-// }
-//
-// // Function to handle the form submission (adding a new user)
-// document.getElementById('signUpForm').addEventListener('submit', function () {
-//     const fullName = document.getElementById('full_name').value;
-//     const email = document.getElementById('up_email').value;
-//     const password = document.getElementById('up_password').value;
-//
-//     addUser(fullName, email, password);
-//     displayUsers();
-//
-//     signUpModal.style.display='none';
-// });
+function addCheckout(){
+    const itemsToStore = basketItems.map(item => ({
+        title: item.querySelector('.card-title').textContent,
+        price: item.querySelector('.badge.text-bg-success').textContent // Assuming this is how you get the price
+    }));
+    
+    // Store the items in localStorage as a JSON string
+    localStorage.setItem('basketItems', JSON.stringify(itemsToStore));
+
+    console.log(itemsToStore)
+}
+
+
