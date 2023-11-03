@@ -70,30 +70,37 @@ function validateForm() {
 }
 
 function countdown(targetDate, id) {
-    // Get the target date and time in milliseconds
     const targetTime = new Date(targetDate).getTime();
-
     var countdownTimer = setInterval(function() {
         var now = new Date().getTime();
         var timeLeft = targetTime - now;
+        var element = document.getElementById(id);
+
+        // Ensure the element exists before trying to update it
+        if (!element) {
+            clearInterval(countdownTimer);
+            console.error('Element with id ' + id + ' does not exist.');
+            return;
+        }
 
         if (timeLeft <= 0) {
             clearInterval(countdownTimer);
-            document.getElementById(id).innerHTML = "Expired";
+            element.innerHTML = "Expired";
         } else {
             var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
             var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            document.getElementById(id).innerHTML = days + "d : " + hours + "h : " + minutes + "m : " + seconds + "s left";
+            element.innerHTML = days + "d : " + hours + "h : " + minutes + "m : " + seconds + "s left";
         }
     }, 1000);
 }
-
 // Call the countdown function with the specific target date and time
-countdown("2023-11-25T15:00:00", "countdown"); // Replace the target date and time with your event's date and time
-countdown("2023-11-22T10:30:00", "countdown-nazerke"); // Replace with the second event's date and time
+document.addEventListener('DOMContentLoaded', function() {
+    countdown("2023-11-25T15:00:00", "countdown"); // For the first event
+    countdown("2023-11-22T10:30:00", "countdown-nazerke"); // For the second event
+});
 
 
 
@@ -217,91 +224,116 @@ function updateBadgeVisibility(itemCount) {
 
 
 
-//Form
-const signUpModal = document.getElementById("signUpModal");
-const signInModal = document.getElementById("signInModal");
-const openSignUpModalButton = document.getElementById("openSignUpModal");
-const openSignInModalButton = document.getElementById("openSignInModal");
-const closeSignUpModalButton = document.getElementById("closeSignUpModal");
-const closeSignInModalButton = document.getElementById("closeSignInModal");
-const signUpSubmitButton = document.getElementById("signup_submit");
-const signInSubmitButton = document.getElementById("signin_submit");
+// //Form
+// const signUpModal = document.getElementById("signUpModal");
+// const signInModal = document.getElementById("signInModal");
+// const openSignUpModalButton = document.getElementById("openSignUpModal");
+// const openSignInModalButton = document.getElementById("openSignInModal");
+// const closeSignUpModalButton = document.getElementById("closeSignUpModal");
+// const closeSignInModalButton = document.getElementById("closeSignInModal");
+// const signUpSubmitButton = document.getElementById("signup_submit");
+// const signInSubmitButton = document.getElementById("signin_submit");
 
-// Open the sign-up modal
-openSignUpModalButton.addEventListener("click", () => {
-    signUpModal.style.display = "block";
+// // Open the sign-up modal
+// openSignUpModalButton.addEventListener("click", () => {
+//     signUpModal.style.display = "block";
+// });
+
+// // Close the sign-up modal
+// closeSignUpModalButton.addEventListener("click", () => {
+//     signUpModal.style.display = "none";
+// });
+
+// // Open the sign-in modal
+// openSignInModalButton.addEventListener("click", () => {
+//     signInModal.style.display = "block";
+// });
+
+
+// closeSignInModalButton.addEventListener("click", () => {
+//     signInModal.style.display = "none";
+// });
+
+
+
+
+// function validateRecieverName(){
+//     var recieverName = document.getElementById('full_name').value
+
+//     if(recieverName === ''){
+//         document.getElementById('nameEmptyError').style.display = 'block'
+//     } else {
+//         document.getElementById('nameEmptyError').style.display = 'none'
+//     }
+
+//     const nameRegex = /^[a-zA-Z]+$/;
+
+//     if(!nameRegex.test(recieverName)){
+//         document.getElementById('nameError').style.display = 'block'
+//     } else {
+//         document.getElementById('nameError').style.display = 'none'
+//     }
+// }
+// function validateRecieverEmail(){
+//     var recieverEmail = document.getElementById('up_email').value
+
+//     if(recieverEmail === ''){
+//         document.getElementById('emailEmptyError').style.display = 'block'
+//     } else {
+//         document.getElementById('emailEmptyError').style.display = 'none'
+//     }
+
+//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+//     if(!emailRegex.test(recieverEmail)){
+//         document.getElementById('emailError').style.display = 'block'
+//     } else {
+//         document.getElementById('emailError').style.display = 'none'
+//     }
+// }
+// function validateRecieverPassword(){
+//     var recieverPassword = document.getElementById('up_password').value
+
+//     if(recieverPassword === ''){
+//         document.getElementById('passwordEmptyError').style.display = 'block'
+//     } else {
+//         document.getElementById('passwordEmptyError').style.display = 'none'
+//     }
+
+
+
+//     if(recieverPassword.length<6){
+//         document.getElementById('passwordError').style.display = 'block'
+//     } else {
+//         document.getElementById('passwordError').style.display = 'none'
+//     }
+// }
+
+// document.getElementById('up_password').addEventListener('input', validateRecieverPassword)
+// document.getElementById('full_name').addEventListener('input', validateRecieverName)
+// document.getElementById('up_email').addEventListener('input', validateRecieverEmail)
+
+
+
+//add checkout 
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.addEventListener('click', function(event) {
+        if (event.target && event.target.id === 'checkoutButton') {
+            addCheckout();
+        }
+    });
 });
 
-// Close the sign-up modal
-closeSignUpModalButton.addEventListener("click", () => {
-    signUpModal.style.display = "none";
-});
+function addCheckout(){
+    const itemsToStore = basketItems.map(item => ({
+        title: item.querySelector('.card-title').textContent,
+        price: item.querySelector('.badge.text-bg-success').textContent // Assuming this is how you get the price
+    }));
+    
+    // Store the items in localStorage as a JSON string
+    localStorage.setItem('basketItems', JSON.stringify(itemsToStore));
 
-// Open the sign-in modal
-openSignInModalButton.addEventListener("click", () => {
-    signInModal.style.display = "block";
-});
-
-
-closeSignInModalButton.addEventListener("click", () => {
-    signInModal.style.display = "none";
-});
-
-
-
-
-function validateRecieverName(){
-    var recieverName = document.getElementById('full_name').value
-
-    if(recieverName === ''){
-        document.getElementById('nameEmptyError').style.display = 'block'
-    } else {
-        document.getElementById('nameEmptyError').style.display = 'none'
-    }
-
-    const nameRegex = /^[a-zA-Z]+$/;
-
-    if(!nameRegex.test(recieverName)){
-        document.getElementById('nameError').style.display = 'block'
-    } else {
-        document.getElementById('nameError').style.display = 'none'
-    }
+    console.log(itemsToStore)
 }
-function validateRecieverEmail(){
-    var recieverEmail = document.getElementById('up_email').value
-
-    if(recieverEmail === ''){
-        document.getElementById('emailEmptyError').style.display = 'block'
-    } else {
-        document.getElementById('emailEmptyError').style.display = 'none'
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if(!emailRegex.test(recieverEmail)){
-        document.getElementById('emailError').style.display = 'block'
-    } else {
-        document.getElementById('emailError').style.display = 'none'
-    }
-}
-function validateRecieverPassword(){
-    var recieverPassword = document.getElementById('up_password').value
-
-    if(recieverPassword === ''){
-        document.getElementById('passwordEmptyError').style.display = 'block'
-    } else {
-        document.getElementById('passwordEmptyError').style.display = 'none'
-    }
 
 
-
-    if(recieverPassword.length<6){
-        document.getElementById('passwordError').style.display = 'block'
-    } else {
-        document.getElementById('passwordError').style.display = 'none'
-    }
-}
-
-document.getElementById('up_password').addEventListener('input', validateRecieverPassword)
-document.getElementById('full_name').addEventListener('input', validateRecieverName)
-document.getElementById('up_email').addEventListener('input', validateRecieverEmail)
