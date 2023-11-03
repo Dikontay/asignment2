@@ -242,18 +242,66 @@ openSignInModalButton.addEventListener("click", () => {
     signInModal.style.display = "block";
 });
 
-// Close the sign-in modal
+
 closeSignInModalButton.addEventListener("click", () => {
     signInModal.style.display = "none";
 });
 
-// Prevent default form submission
-signUpSubmitButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    // You can add your form submission logic here
-});
 
-signInSubmitButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    // You can add your form submission logic here
-});
+
+
+function validateRecieverName(){
+    var recieverName = document.getElementById('full_name').value
+
+    if(recieverName === ''){
+        document.getElementById('nameEmptyError').style.display = 'block'
+    } else {
+        document.getElementById('nameEmptyError').style.display = 'none'
+    }
+
+    const nameRegex = /^[a-zA-Z]+$/;
+
+    if(!nameRegex.test(recieverName)){
+        document.getElementById('nameError').style.display = 'block'
+    } else {
+        document.getElementById('nameError').style.display = 'none'
+    }
+}
+function validateRecieverEmail(){
+    var recieverEmail = document.getElementById('up_email').value
+
+    if(recieverEmail === ''){
+        document.getElementById('emailEmptyError').style.display = 'block'
+    } else {
+        document.getElementById('emailEmptyError').style.display = 'none'
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!emailRegex.test(recieverEmail)){
+        document.getElementById('emailError').style.display = 'block'
+    } else {
+        document.getElementById('emailError').style.display = 'none'
+    }
+}
+function validateRecieverPassword(){
+    var recieverPassword = document.getElementById('up_password').value
+
+    if(recieverPassword === ''){
+        document.getElementById('passwordEmptyError').style.display = 'block'
+    } else {
+        document.getElementById('passwordEmptyError').style.display = 'none'
+    }
+
+
+
+    if(recieverPassword.length<6){
+        document.getElementById('passwordError').style.display = 'block'
+    } else {
+        document.getElementById('passwordError').style.display = 'none'
+    }
+}
+
+document.getElementById('up_password').addEventListener('input', validateRecieverPassword)
+document.getElementById('full_name').addEventListener('input', validateRecieverName)
+document.getElementById('up_email').addEventListener('input', validateRecieverEmail)
