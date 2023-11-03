@@ -224,94 +224,117 @@ function updateBadgeVisibility(itemCount) {
 
 
 
-// //Form
-// const signUpModal = document.getElementById("signUpModal");
-// const signInModal = document.getElementById("signInModal");
-// const openSignUpModalButton = document.getElementById("openSignUpModal");
-// const openSignInModalButton = document.getElementById("openSignInModal");
-// const closeSignUpModalButton = document.getElementById("closeSignUpModal");
-// const closeSignInModalButton = document.getElementById("closeSignInModal");
-// const signUpSubmitButton = document.getElementById("signup_submit");
-// const signInSubmitButton = document.getElementById("signin_submit");
-
-// // Open the sign-up modal
-// openSignUpModalButton.addEventListener("click", () => {
-//     signUpModal.style.display = "block";
-// });
-
-// // Close the sign-up modal
-// closeSignUpModalButton.addEventListener("click", () => {
-//     signUpModal.style.display = "none";
-// });
-
-// // Open the sign-in modal
-// openSignInModalButton.addEventListener("click", () => {
-//     signInModal.style.display = "block";
-// });
+//Form
+const signUpModal = document.getElementById("signUpModal");
+const signInModal = document.getElementById("signInModal");
+const openSignUpModalButton = document.getElementById("openSignUpModal");
+const openSignInModalButton = document.getElementById("openSignInModal");
+const closeSignUpModalButton = document.getElementById("closeSignUpModal");
+const closeSignInModalButton = document.getElementById("closeSignInModal");
+const signUpSubmitButton = document.getElementById("signup_submit");
+const signInSubmitButton = document.getElementById("signin_submit");
 
 
-// closeSignInModalButton.addEventListener("click", () => {
-//     signInModal.style.display = "none";
-// });
+// Open the sign-up modal
+if (openSignUpModalButton) {
+    openSignUpModalButton.addEventListener("click", () => {
+        signUpModal.style.display = "block";
+    });
+}
 
+// Close the sign-up modal
+if (closeSignUpModalButton) {
+    closeSignUpModalButton.addEventListener("click", () => {
+        signUpModal.style.display = "none";
+    });
+}
 
+// Open the sign-in modal
+if (openSignInModalButton) {
+    openSignInModalButton.addEventListener("click", () => {
+        signInModal.style.display = "block";
+    });
+}
 
-
-// function validateRecieverName(){
-//     var recieverName = document.getElementById('full_name').value
-
-//     if(recieverName === ''){
-//         document.getElementById('nameEmptyError').style.display = 'block'
-//     } else {
-//         document.getElementById('nameEmptyError').style.display = 'none'
-//     }
-
-//     const nameRegex = /^[a-zA-Z]+$/;
-
-//     if(!nameRegex.test(recieverName)){
-//         document.getElementById('nameError').style.display = 'block'
-//     } else {
-//         document.getElementById('nameError').style.display = 'none'
-//     }
-// }
-// function validateRecieverEmail(){
-//     var recieverEmail = document.getElementById('up_email').value
-
-//     if(recieverEmail === ''){
-//         document.getElementById('emailEmptyError').style.display = 'block'
-//     } else {
-//         document.getElementById('emailEmptyError').style.display = 'none'
-//     }
-
-//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-//     if(!emailRegex.test(recieverEmail)){
-//         document.getElementById('emailError').style.display = 'block'
-//     } else {
-//         document.getElementById('emailError').style.display = 'none'
-//     }
-// }
-// function validateRecieverPassword(){
-//     var recieverPassword = document.getElementById('up_password').value
-
-//     if(recieverPassword === ''){
-//         document.getElementById('passwordEmptyError').style.display = 'block'
-//     } else {
-//         document.getElementById('passwordEmptyError').style.display = 'none'
-//     }
+// Close the sign-in modal
+if (closeSignInModalButton) {
+    closeSignInModalButton.addEventListener("click", () => {
+        signInModal.style.display = "none";
+    });
+}
 
 
 
-//     if(recieverPassword.length<6){
-//         document.getElementById('passwordError').style.display = 'block'
-//     } else {
-//         document.getElementById('passwordError').style.display = 'none'
-//     }
-// }
 
-// document.getElementById('up_password').addEventListener('input', validateRecieverPassword)
-// document.getElementById('full_name').addEventListener('input', validateRecieverName)
-// document.getElementById('up_email').addEventListener('input', validateRecieverEmail)
+function validateRecieverName(){
+    var recieverName = document.getElementById('full_name').value
+
+    if(recieverName === ''){
+        document.getElementById('nameEmptyError').style.display = 'block'
+    } else {
+        document.getElementById('nameEmptyError').style.display = 'none'
+    }
+
+    const nameRegex = /^[a-zA-Z]+$/;
+
+    if(!nameRegex.test(recieverName)){
+        document.getElementById('nameError').style.display = 'block'
+    } else {
+        document.getElementById('nameError').style.display = 'none'
+    }
+}
+function validateRecieverEmail(){
+    var recieverEmail = document.getElementById('up_email').value
+
+    if(recieverEmail === ''){
+        document.getElementById('emailEmptyError').style.display = 'block'
+    } else {
+        document.getElementById('emailEmptyError').style.display = 'none'
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!emailRegex.test(recieverEmail)){
+        document.getElementById('emailError').style.display = 'block'
+    } else {
+        document.getElementById('emailError').style.display = 'none'
+    }
+}
+function validateRecieverPassword(){
+    var recieverPassword = document.getElementById('up_password').value
+
+    if(recieverPassword === ''){
+        document.getElementById('passwordEmptyError').style.display = 'block'
+    } else {
+        document.getElementById('passwordEmptyError').style.display = 'none'
+    }
+
+
+
+    if(recieverPassword.length<6){
+        document.getElementById('passwordError').style.display = 'block'
+    } else {
+        document.getElementById('passwordError').style.display = 'none'
+    }
+}
+
+// Adding event listeners for input validation
+const upPasswordElement = document.getElementById('up_password');
+const fullNameElement = document.getElementById('full_name');
+const upEmailElement = document.getElementById('up_email');
+
+if (upPasswordElement) {
+    upPasswordElement.addEventListener('input', validateRecieverPassword);
+}
+
+if (fullNameElement) {
+    fullNameElement.addEventListener('input', validateRecieverName);
+}
+
+if (upEmailElement) {
+    upEmailElement.addEventListener('input', validateRecieverEmail);
+}
+
 
 
 
