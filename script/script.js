@@ -231,7 +231,7 @@ const openSignUpModalButton = document.getElementById("openSignUpModal");
 const openSignInModalButton = document.getElementById("openSignInModal");
 const closeSignUpModalButton = document.getElementById("closeSignUpModal");
 const closeSignInModalButton = document.getElementById("closeSignInModal");
-const signUpSubmitButton = document.getElementById("signup_submit");
+
 const signInSubmitButton = document.getElementById("signin_submit");
 
 
@@ -337,15 +337,25 @@ if (upEmailElement) {
 
 
 
+
 document.getElementById('sign-inbtn').addEventListener('click', function(event) {
     event.preventDefault(); // Prevent the form from submitting (if used in a form)
 
-    // Specify the URL of the new webpage you want to open
-    const newPageURL = "/html/admin-page.html"; // Change this URL to the one you want
+    // Get the user input for email and password
+    const recieverEmail = document.getElementById('up_email').value;
+    const recieverPassword = document.getElementById('up_password').value;
 
-    // Open the new webpage in the current browser tab
-    window.location.href = newPageURL;
-})
+    // Check if email and password match the criteria
+    if (recieverEmail === "admin05@he.com" && recieverPassword === "1111111") {
+        // Redirect to admin-page.html
+        const newPageURL = "/html/admin-page.html";
+        window.location.href = newPageURL;
+    } else {
+        // Display an error message or take appropriate action for invalid credentials
+        alert("Invalid email or password. Please try again.");
+    }
+});
+
 
 
 //add checkout 
@@ -379,5 +389,3 @@ function openImageModal(imageSrc, imageAlt) {
     const modal = new bootstrap.Modal(document.getElementById('imageZoomModal'));
     modal.show();
 }
-
-
