@@ -337,6 +337,16 @@ if (upEmailElement) {
 
 
 
+document.getElementById('sign-inbtn').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the form from submitting (if used in a form)
+
+    // Specify the URL of the new webpage you want to open
+    const newPageURL = "/html/admin-page.html"; // Change this URL to the one you want
+
+    // Open the new webpage in the current browser tab
+    window.location.href = newPageURL;
+})
+
 
 //add checkout 
 document.addEventListener('DOMContentLoaded', function() {
