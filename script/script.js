@@ -369,4 +369,15 @@ function addCheckout(){
     console.log(itemsToStore)
 }
 
+function openImageModal(imageSrc, imageAlt) {
+    // Set the modal image source and alt text
+    const modalImage = document.getElementById('modalImage');
+    modalImage.src = imageSrc;
+    modalImage.alt = imageAlt;
+
+    // Show the modal
+    const modal = new bootstrap.Modal(document.getElementById('imageZoomModal'));
+    modal.show();
+}
+
 
