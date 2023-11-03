@@ -224,8 +224,6 @@ const openSignUpModalButton = document.getElementById("openSignUpModal");
 const openSignInModalButton = document.getElementById("openSignInModal");
 const closeSignUpModalButton = document.getElementById("closeSignUpModal");
 const closeSignInModalButton = document.getElementById("closeSignInModal");
-const signUpSubmitButton = document.getElementById("signup_submit");
-const signInSubmitButton = document.getElementById("signin_submit");
 
 // Open the sign-up modal
 openSignUpModalButton.addEventListener("click", () => {
@@ -305,3 +303,49 @@ function validateRecieverPassword(){
 document.getElementById('up_password').addEventListener('input', validateRecieverPassword)
 document.getElementById('full_name').addEventListener('input', validateRecieverName)
 document.getElementById('up_email').addEventListener('input', validateRecieverEmail)
+
+
+document.getElementById('sign-inbtn').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the form from submitting (if used in a form)
+
+    // Specify the URL of the new webpage you want to open
+    const newPageURL = "/html/admin-page.html"; // Change this URL to the one you want
+
+    // Open the new webpage in the current browser tab
+    window.location.href = newPageURL;
+})
+
+// const users = [];
+//
+// // Function to add a new user to the array
+// function addUser(fullName, email, password) {
+//     users.push({ fullName, email, password });
+// }
+//
+// // Function to display users in the admin page
+// function displayUsers() {
+//     const userListContainer = document.getElementById('user-list');
+//     userListContainer.innerHTML = '';
+//
+//     users.forEach(user => {
+//         const userDiv = document.createElement('div');
+//         userDiv.innerHTML = `
+//                     <p>Name: ${user.fullName}</p>
+//                     <p>Email: ${user.email}</p>
+//                     <p>Password: ${user.password}</p>
+//                 `;
+//         userListContainer.appendChild(userDiv);
+//     });
+// }
+//
+// // Function to handle the form submission (adding a new user)
+// document.getElementById('signUpForm').addEventListener('submit', function () {
+//     const fullName = document.getElementById('full_name').value;
+//     const email = document.getElementById('up_email').value;
+//     const password = document.getElementById('up_password').value;
+//
+//     addUser(fullName, email, password);
+//     displayUsers();
+//
+//     signUpModal.style.display='none';
+// });
